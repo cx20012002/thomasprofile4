@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #ffefed;
   --foreground: #171717;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #ffefed;
   }
 }
 
@@ -23,5 +23,17 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --primary: #fe2726;
+    --secondary: #ffefed;
+    --bannerBg: #ffe6e3;
+  }
+
+  .content-container {
+    @apply mx-auto w-full max-w-[2280px] px-5 xl:px-8;
   }
 }

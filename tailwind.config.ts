@@ -11,6 +11,15 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        bannerBg: "var(--bannerBg)",
+      },
+      fontFamily: {
+        anton: ["var(--font-anton)"],
+        instrumentSans: ["var(--font-instrument-sans)"],
+        instrumentSerif: ["var(--font-instrument-serif)"],
+        francoisOne: ["var(--font-francois-one)"],
       },
     },
   },
