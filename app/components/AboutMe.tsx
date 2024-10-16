@@ -16,6 +16,7 @@ export default function AboutMe() {
         { autoAlpha: 0 },
         {
           autoAlpha: 1,
+          duration: 1.5,
           stagger: 0.2,
           scrollTrigger: {
             trigger: containerRef.current,

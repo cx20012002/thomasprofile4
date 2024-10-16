@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Anton, Instrument_Sans, Instrument_Serif, Francois_One } from "next/font/google";
+import { Anton, Instrument_Sans, Instrument_Serif, Francois_One, Inter } from "next/font/google";
 import "./globals.css";
 import { clsx } from "clsx";
 import Header from "./components/Header";
@@ -32,6 +32,13 @@ const francoisOne = Francois_One({
   variable: "--font-francois-one",
 });
 
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
 export const metadata: Metadata = {
   title: "Thomas Profile",
   description: "My personal profile",
@@ -50,6 +57,7 @@ export default function RootLayout({
           instrumentSans.variable,
           instrumentSerif.variable,
           francoisOne.variable,
+          inter.variable,
           "bg-secondary antialiased",
         )}
         suppressHydrationWarning={true}

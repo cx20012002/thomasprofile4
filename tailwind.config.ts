@@ -20,6 +20,7 @@ const config: Config = {
         instrumentSans: ["var(--font-instrument-sans)"],
         instrumentSerif: ["var(--font-instrument-serif)"],
         francoisOne: ["var(--font-francois-one)"],
+        inter: ["var(--font-inter)"],
       },
     },
   },
