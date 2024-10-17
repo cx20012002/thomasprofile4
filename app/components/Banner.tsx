@@ -4,12 +4,9 @@ import { useGSAP } from "@gsap/react";
 import { useRef, useState } from "react";
 import MouseCursorComponent from "./MouseCursorComponent";
 import { gsap } from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import Image from "next/image";
 
 export default function Banner() {
-  gsap.registerPlugin(ScrollTrigger);
-
   const bannerContainer = useRef<HTMLDivElement | null>(null);
   const imgRef = useRef<HTMLDivElement | null>(null);
 
@@ -74,8 +71,8 @@ export default function Banner() {
             src={"/home_banner_bgword.svg"}
             alt="Home Banner Background Word"
             width={700}
-            height={410}
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 scale-75 md:scale-100"
+            height={450}
+            className="absolute w-[700px] h-[450px] bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 scale-75 md:scale-100"
           />
         </div>
         {/* Banner Bottom */}
@@ -84,8 +81,8 @@ export default function Banner() {
             src={"/home_banner_bgword.svg"}
             alt="Home Banner Background Word"
             width={700}
-            height={410}
-            className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 scale-75 md:scale-100"
+            height={450}
+            className="absolute w-[700px] h-[450px] left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 scale-75 md:scale-100"
           />
           {/* Banner Footer */}
           <div className="flex w-full justify-between gap-20 px-5 py-12 text-xs font-medium uppercase xl:px-8">

@@ -6,12 +6,12 @@ import SelectedWorks from "./components/SelectedWorks";
 
 export default async function Home() {
   return (
-    <div className="font-francoisOne text-primary">
+    <>
       <Banner />
       <Intro />
       <SelectedWorks />
       <AboutMe/>
       <HomeFooter/>
-    </div>
+    </>
   );
 }

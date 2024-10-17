@@ -1,51 +1,13 @@
+import { works } from "@/utils/contentStore";
 import WorkCard from "./WorkCard";
 
 export default function SelectedWorks() {
-  const works = [
-    {
-      title1: "Monogram",
-      title2: "Branding",
-      src: "/tile1.avif",
-      src2: "/tile1_2.avif",
-    },
-    {
-      title1: "Aura",
-      title2: "Branding, Ux",
-      src: "/tile2.avif",
-      src2: "/tile2_2.svg",
-    },
-    {
-      title1: "KOI",
-      title2: "Branding",
-      src: "/tile1.avif",
-      src2: "/tile1_2.avif",
-    },
-    {
-      title1: "KOI",
-      title2: "Branding",
-      src: "/tile_custom_1.svg",
-      src2: "/tile_custom_1a.avif",
-    },
-    {
-      title1: "Chomp",
-      title2: "Branding",
-      src: "/tile_custom_2.svg",
-      src2: "/tile_custom_2a.avif",
-    },
-    {
-      title1: "Nebula",
-      title2: "Branding, Visual Identity",
-      src: "/tile_custom_3.avif",
-      src2: "/tile_custom_3a.avif",
-    },
-  ];
-
   return (
     <div className="content-container xl:pt-[120px]">
       {/* Selected Work Summary */}
       <section className="mb-16 flex flex-col gap-2">
         <p className="uppercase">selected works (2024)</p>
-        <p className="font-instrumentSans w-full text-lg font-medium leading-6 xl:w-1/4">
+        <p className="w-full font-instrumentSans text-lg font-medium leading-6 xl:w-1/4">
           They are my way of leaving a positive mark on the world, one project at a time.
         </p>
       </section>

@@ -41,7 +41,7 @@ export default function WorkCard({
   return (
     <Link
       ref={containerRef}
-      href="#"
+      href={`/works/${item.title1.toLowerCase()}`}
       className={`flex flex-col gap-2 text-[12px] font-thin uppercase ${isLarge && !custom && "xl:col-span-2"} ${className}`}
     >
       <div className="group relative h-[260px] overflow-hidden md:h-[720px]">
@@ -50,14 +50,14 @@ export default function WorkCard({
           alt="Picture of the author"
           width={613}
           height={720}
-          className="absolute z-20 h-full w-full object-cover transition-opacity duration-300 group-hover:opacity-0"
+          className="absolute z-20 h-full w-full aspect-square object-cover transition-opacity duration-300 group-hover:opacity-0"
         />
         <Image
           src={item.src2}
           alt="Picture of the author"
           width={613}
           height={720}
-          className="absolute z-10 h-full w-full object-cover"
+          className="absolute z-10 h-full w-full aspect-square object-cover"
         />
       </div>
       <div className="flex items-center justify-start gap-2">

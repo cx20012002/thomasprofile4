@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useRef, useState } from "react";
 import gsap from "gsap";
 
-export default function HeaderPopupContent() {
+export default function HeaderPopupContent({ setIsModalOpen }: { setIsModalOpen: (value: boolean) => void }) {
   const [isMobile, setIsMobile] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
@@ -40,7 +40,7 @@ export default function HeaderPopupContent() {
       <div className="flex w-full flex-col gap-5 md:gap-20 xl:w-[823px]">
         <div className="text-fading flex flex-col gap-4 font-instrumentSerif text-[60px] font-thin uppercase leading-none md:items-center md:gap-3 md:text-[120px]">
           {pageLinks.map((link, index) => (
-            <Link href={link.url} className="group overflow-hidden" key={index}>
+            <Link onClick={() => setIsModalOpen(false)} href={link.url} className="group overflow-hidden" key={index}>
               {link.name}
               {!isMobile && (
                 <div className="h-[2px] w-0 bg-white transition-all duration-500 ease-in-out group-hover:w-full" />

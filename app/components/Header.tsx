@@ -4,7 +4,7 @@ import Modal from "./Modal";
 import { useState } from "react";
 import HeaderPopupContent from "./HeaderPopupContent";
 
-export default function Header() {
+export default function Header({ logoLight = false }: { logoLight?: boolean }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   function toggleModal() {
@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <div className="fixed z-50 flex w-full justify-between p-5 text-[16px] font-bold text-primary">
       <Link href={"/"} onClick={() => setIsModalOpen(false)}>
-        <h2 className={`${isModalOpen ? "text-white" : "text-primary"} transition-colors duration-1000`}>K — W</h2>
+        <h2 className={`${isModalOpen || logoLight ? "text-white" : "text-primary"} transition-colors duration-1000`}>K — W</h2>
       </Link>
       <div onClick={toggleModal} className="group relative flex aspect-square w-8 cursor-pointer">
         <div
@@ -31,7 +31,7 @@ export default function Header() {
         isOpen={isModalOpen}
         className="absolute inset-0 -z-10 flex aspect-square h-screen w-full bg-primary text-white"
       >
-        <HeaderPopupContent />
+        <HeaderPopupContent setIsModalOpen={setIsModalOpen} />
       </Modal>
     </div>
   );

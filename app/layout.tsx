@@ -3,6 +3,8 @@ import { Anton, Instrument_Sans, Instrument_Serif, Francois_One, Inter } from "n
 import "./globals.css";
 import { clsx } from "clsx";
 import Header from "./components/Header";
+import GlobalFooterWrapper from "./components/GlobalFooterWrapper";
+import GlobalHeaderWrapper from "./components/GlobalHeaderWrapper";
 
 const anton = Anton({
   subsets: ["latin"],
@@ -58,12 +60,13 @@ export default function RootLayout({
           instrumentSerif.variable,
           francoisOne.variable,
           inter.variable,
-          "bg-secondary antialiased",
+          "bg-secondary font-francoisOne text-primary antialiased",
         )}
         suppressHydrationWarning={true}
       >
-        <Header />
+        <GlobalHeaderWrapper />
         {children}
+        <GlobalFooterWrapper />
       </body>
     </html>
   );
