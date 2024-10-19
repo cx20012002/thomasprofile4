@@ -1,17 +1,19 @@
 import { socialLinks } from "@/utils/contentStore";
 import clsx from "clsx";
+import { PortableText } from "next-sanity";
 import Link from "next/link";
 
-export default function HomeFooter() {
+export default function HomeFooter({ footer:{smallTitle, title} }: any) {
   return (
     <div className="flex w-full flex-col items-center justify-center gap-12 bg-primary px-5 py-16 text-bannerBg lg:py-32 xl:px-8 xl:py-52">
       <div className="w-full text-center text-xs uppercase xl:w-[1085px]">
-        <p className="font-normal">关于我自己的故事</p>
-        <p>Kim Wong is a visionary designer who bridges cultures through her innovative design philosophy</p>
+        <p className="font-normal">{smallTitle}</p>
+        <PortableText value={title} />
       </div>
       <div className="relative inset-0 w-full text-center font-anton uppercase xl:w-[1200px]">
         <p className="text-[84px] leading-[1em] lg:text-[180px] xl:text-[240px]">let's work together</p>
-        <div
+        <Link
+          href="/contact"
           className={clsx(
             "absolute inset-0 left-1/2 top-1/2 bg-secondary font-francoisOne text-primary after:bg-primary hover:border-primary",
             "flex aspect-square w-[100px] -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-[#ffa3a3]",
@@ -21,7 +23,7 @@ export default function HomeFooter() {
           )}
         >
           Hire Me Now
-        </div>
+        </Link>
       </div>
       <div className="flex h-[39px] w-full items-center justify-between gap-[10px] overflow-hidden text-xs uppercase lg:w-[731px]">
         {socialLinks.map((link) => (

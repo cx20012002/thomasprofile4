@@ -2,9 +2,10 @@
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { PortableText } from "next-sanity";
 import { useRef } from "react";
 
-export default function AboutMe() {
+export default function AboutMe({ aboutMe: { smallTitle, richText, lgEnglishTitle, lgText, chineseTitle } }: any) {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useGSAP(
@@ -35,21 +36,21 @@ export default function AboutMe() {
       className="content-container flex flex-col items-center justify-center gap-12 py-16 lg:py-32 xl:py-52"
     >
       <div className="w-[320px] text-center text-xs uppercase xl:w-1/5">
-        <p className="font-normal">关于我自己的故事</p>
-        <p>Kim Wong is a visionary designer who bridges cultures through her innovative design philosophy</p>
+        <p className="font-normal">{smallTitle}</p>
+        <div>
+          <PortableText value={richText} />
+        </div>
       </div>
-      <div className="font-anton text-center text-[84px] uppercase leading-[1em] lg:text-[180px] xl:text-[240px]">
-        <p>Kim Wong</p>
+      <div className="text-center font-anton text-[84px] uppercase leading-[1em] lg:text-[180px] xl:text-[240px]">
+        <p>{lgEnglishTitle}</p>
       </div>
-      <div className="font-instrumentSerif w-full text-center text-[24px] leading-[1.2em] lg:w-3/5 lg:text-[42px] xl:text-[52px]">
-        <p>
-          Kim Wong is a visionary designer with a passion for exploring the intersections of art and technology. Outside
-          the studio, she finds joy in hiking, experimenting with digital art, and diving into the world of sci-fi
-          literature
-        </p>
+      <div className="w-full text-center font-instrumentSerif text-[24px] leading-[1.2em] lg:w-3/5 lg:text-[42px] xl:text-[52px]">
+        <div>
+          <PortableText value={lgText} />
+        </div>
       </div>
       <div className="font-anton text-[84px] uppercase leading-[1em] lg:text-[180px] xl:text-[240px]">
-        <p>你好</p>
+        <p>{chineseTitle}</p>
       </div>
     </div>
   );

@@ -1,12 +1,15 @@
-import React from 'react'
-import Banner from './components/Banner'
-import Works from './components/Works'
+import React from "react";
+import Banner from "./components/Banner";
+import Works from "./components/Works";
+import { getSelectedWorks } from "@/utils/api";
 
-export default function page() {
+export default async function page() {
+  const works = await getSelectedWorks();
+
   return (
     <>
-      <Banner/>
-      <Works/>
+      <Banner />
+      <Works works={works} />
     </>
-  )
+  );
 }

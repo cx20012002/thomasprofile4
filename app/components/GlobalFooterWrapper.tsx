@@ -8,7 +8,7 @@ export default function GlobalFooterWrapper() {
 
   return (
     <>
-      {pathname === "/" || pathname === "/contact" ? null : pathname.startsWith("/works") ? (
+      {pathname === "/" || pathname === "/contact" || pathname.startsWith("/admin") ? null : pathname.startsWith("/works") ? (
         <Footer bgColor="#f2f2f2" />
       ) : (
         <Footer />

@@ -3,8 +3,9 @@
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { gsap } from "gsap";
+import { PortableText } from "next-sanity";
 
-export default function Intro() {
+export default function Intro({ sectionText: { smallTitle, richText } }: any) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const textRef1 = useRef<HTMLDivElement | null>(null);
   const textRef2 = useRef<HTMLDivElement | null>(null);
@@ -64,17 +65,16 @@ export default function Intro() {
     <div className="content-container overflow-hidden px-0 pb-20">
       {/* Summary */}
       <div className="w-full">
-        <section className="flex flex-col gap-2 px-5 py-[80px] xl:px-8 xl:py-[120px]">
-          <small className="uppercase">About Kim Wong</small>
-          <p className="font-instrumentSans w-full text-lg font-medium leading-6 xl:w-1/4">
-            Born in Seoul, South Korea, and now making waves in San Francisco, Kim Wong is a visionary designer who
-            bridges cultures through her innovative design philosophy.
-          </p>
+        <section className="flex flex-col gap-2 px-5 py-[80px] xl:py-[120px]">
+          <small className="uppercase">{smallTitle}</small>
+          <div className="w-full font-instrumentSans text-lg font-medium leading-6 xl:w-1/4">
+            <PortableText value={richText} />
+          </div>
         </section>
 
         <section
           ref={containerRef}
-          className="font-anton flex rotate-0 flex-col text-nowrap text-[90px] leading-[1em] md:-rotate-6 md:text-[200px] xl:text-[380px]"
+          className="flex rotate-0 flex-col text-nowrap font-anton text-[90px] leading-[1em] md:-rotate-6 md:text-[200px] xl:text-[380px]"
         >
           <div ref={textRef1}>
             <p>KIM WONG • BRAND DESIGNER</p>

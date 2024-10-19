@@ -5,23 +5,17 @@ import { useRef, useState } from "react";
 import MouseCursorComponent from "./MouseCursorComponent";
 import { gsap } from "gsap";
 import Image from "next/image";
+import { urlFor } from "@/sanity/lib/image";
 
-export default function Banner() {
+export default function Banner({ bannerImages }:any) {
   const bannerContainer = useRef<HTMLDivElement | null>(null);
   const imgRef = useRef<HTMLDivElement | null>(null);
 
-  // List of images
-  const images = [
-    { src: "/hb_0.avif", alt: "Home Banner 0" },
-    { src: "/hb_1.avif", alt: "Home Banner 1" },
-    { src: "/hb_2.avif", alt: "Home Banner 2" },
-  ];
-
-  const [visibleImages, setVisibleImages] = useState(images);
+  const [visibleImages, setVisibleImages] = useState(bannerImages);
 
   function imgClick(index: number) {
     if (visibleImages.length === 1) {
-      setVisibleImages(images);
+      setVisibleImages(bannerImages);
     } else {
       setVisibleImages((prev) => prev.filter((_, i) => i !== index));
     }
@@ -100,8 +94,9 @@ export default function Banner() {
             {visibleImages.map((image, index) => (
               <Image
                 key={index}
-                src={image.src}
-                alt={image.alt}
+                src={urlFor(image).url()}
+                alt={"Banner Image"}
+                priority
                 fill
                 className="h-full w-full object-cover transition-opacity duration-300"
                 style={{ zIndex: visibleImages.length - index }}

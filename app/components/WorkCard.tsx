@@ -5,9 +5,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
 import { gsap } from "gsap";
+import { urlFor } from "@/sanity/lib/image";
 
 export default function WorkCard({
-  item,
+  item: { title, tagline, workImages, slug },
   isLarge = false,
   className,
   custom = false,
@@ -41,29 +42,29 @@ export default function WorkCard({
   return (
     <Link
       ref={containerRef}
-      href={`/works/${item.title1.toLowerCase()}`}
+      href={`/works/${slug.current}`}
       className={`flex flex-col gap-2 text-[12px] font-thin uppercase ${isLarge && !custom && "xl:col-span-2"} ${className}`}
     >
       <div className="group relative h-[260px] overflow-hidden md:h-[720px]">
         <Image
-          src={item.src}
+          src={urlFor(workImages[0]).url() || ""}
           alt="Picture of the author"
-          width={613}
-          height={720}
-          className="absolute z-20 h-full w-full aspect-square object-cover transition-opacity duration-300 group-hover:opacity-0"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="absolute z-20 object-cover transition-opacity duration-300 group-hover:opacity-0"
         />
         <Image
-          src={item.src2}
+          src={urlFor(workImages[1]).url() || ""}
           alt="Picture of the author"
-          width={613}
-          height={720}
-          className="absolute z-10 h-full w-full aspect-square object-cover"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="absolute z-10 object-cover"
         />
       </div>
       <div className="flex items-center justify-start gap-2">
-        <p>{item.title1}</p>
-        <div className="bg-primary aspect-square w-[5px] rounded-full" />
-        <p>{item.title2}</p>
+        <p>{tagline && (tagline as string).split(",")[0]}</p>
+        <div className="aspect-square w-[5px] rounded-full bg-primary" />
+        <p>{tagline && (tagline as string).split(",")[1]}</p>
       </div>
     </Link>
   );

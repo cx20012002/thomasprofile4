@@ -10,8 +10,7 @@ export default function GlobalHeaderWrapper() {
   const pathname = usePathname();
   return (
     <>
-    {pathname === "/contact" ? <Header logoLight /> : <Header />}
-      
+      {pathname.startsWith("/admin") ? null : pathname === "/contact" ? <Header logoLight /> : <Header />}
     </>
   );
 }

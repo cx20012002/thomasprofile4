@@ -22,7 +22,8 @@ export default function Footer({ bgColor = "bg-secondary" }: { bgColor?: string 
           <p className="text-[120px] leading-[1em] lg:text-[200px] xl:text-[380px]">
             Kim <br /> wong
           </p>
-          <div
+          <Link
+            href="/contact"
             className={clsx(
               "absolute inset-0 left-1/2 top-1/2 bg-secondary font-francoisOne text-primary after:bg-primary hover:border-primary",
               "flex aspect-square w-[100px] -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-[#ffa3a3]",
@@ -32,7 +33,7 @@ export default function Footer({ bgColor = "bg-secondary" }: { bgColor?: string 
             )}
           >
             Hire Me Now
-          </div>
+          </Link>
         </div>
       </div>
     </div>

@@ -38,3 +38,7 @@ body {
   }
 }
 
+
+#sanity .dezWjQ{
+  @apply max-w-full;
+}
