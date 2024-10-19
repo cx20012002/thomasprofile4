@@ -1,15 +1,18 @@
-'use client';
-
-import { horizontalLoop } from "@/utils/seamlessLoop";
+"use client";
 import { useGSAP } from "@gsap/react";
 import React, { useRef } from "react";
+import gsap from "gsap";
 
 export default function SeamlessLoop() {
   const ref = useRef<HTMLDivElement | null>(null);
   useGSAP(
     () => {
       const works = ref.current?.querySelectorAll("p");
-      horizontalLoop(works, { repeat: -1, speed: 0.5 });
+      gsap.timeline({ repeat: -1, paused: false }).to(works, {
+        x: -(works[0].offsetWidth + 8) * 2,
+        duration: 10,
+        ease: "none",
+      });
     },
     { scope: ref },
   );
